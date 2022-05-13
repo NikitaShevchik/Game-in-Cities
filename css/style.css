@@ -1,0 +1,1035 @@
+@charset "UTF-8";
+/*Обнуление*/
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+/*-------------------МИКСИНЫ-------------------------*/
+/*-------------------БАЗА - ФОН, ШРИФТ, ШИРИНА, КОНТЕНТ-------------------------*/
+body {
+  background: #2f6ed3;
+  background: -webkit-gradient(linear, left bottom, left top, from(#2f6ed3), color-stop(47%, #5095e4), to(#2f6ed3));
+  background: linear-gradient(0deg, #2f6ed3 0%, #5095e4 47%, #2f6ed3 100%);
+}
+
+.main {
+  font-family: 'Raleway', sans-serif;
+}
+
+.content {
+  position: relative;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/*-------------------ПЕРВАЯ СТРАНИЦА, ГДЕ ВВОДИМ ИМЕНА ИГРОКОВ-------------------------*/
+.welcome {
+  position: fixed;
+  width: 100%;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+  left: 0;
+  padding: 50px 30px 50px 30px;
+}
+
+.welcome__title {
+  display: block;
+  font-size: 140px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  color: black;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.welcome__text {
+  padding: 70px 0 20px 0;
+  font-size: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.658);
+  line-height: 1.2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.welcome__start {
+  width: 100%;
+  margin: 50px 0;
+}
+
+.welcome__button {
+  width: 100%;
+  font-size: 30px;
+  padding: 15px 0;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.45);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.123);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.123);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.welcome__button:hover {
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  background: rgba(255, 192, 0, 0.9);
+}
+
+/*-------------------ВВОД ИМЕН ИГРОКОВ-------------------------*/
+.player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.player__card {
+  margin-bottom: 30px;
+}
+
+.player__card:last-child {
+  margin: 0;
+}
+
+.player__number {
+  font-size: 25px;
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.player__input {
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.player__input:focus {
+  -webkit-box-shadow: 0 8px 32px 0 rgba(89, 255, 111, 0.295);
+          box-shadow: 0 8px 32px 0 rgba(89, 255, 111, 0.295);
+  border: 1px solid rgba(102, 255, 0, 0.18);
+}
+
+/*-------------------УХОД СТРАНИЦЫ ВЛЕВО-------------------------*/
+.welcome._hide {
+  left: -100%;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
+/*-------------------ОСНОВНАЯ СТРАНИЦА ИГРЫ-------------------------*/
+.citygame {
+  width: 100%;
+  position: fixed;
+  right: -100%;
+  top: 0;
+  padding: 30px 30px 50px 30px;
+}
+
+.citygame__title {
+  font-size: 100px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.citygame__rules {
+  padding: 50px 30px 10px 30px;
+  font-size: 15px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.37);
+  line-height: 1.2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.citygame__answer {
+  margin-top: 15px;
+}
+
+.citygame__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.citygame__button {
+  margin: 20px 0;
+  background: rgba(255, 192, 0, 0.9);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.citygame__button:hover {
+  -webkit-box-shadow: 0 8px 32px 0 rgba(255, 230, 0, 0.24);
+          box-shadow: 0 8px 32px 0 rgba(255, 230, 0, 0.24);
+}
+
+.citygame__button p {
+  font-size: 30px;
+  padding: 15px 30px;
+}
+
+.citygame__lastcity {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.citygame__input {
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 50px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.citygame__input:focus {
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 128, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 128, 135, 0.37);
+}
+
+.citygame__playername {
+  font-size: 40px;
+  text-align: center;
+  padding: 10px 0 0 0;
+  color: #fff;
+}
+
+.citygame__concede {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.citygame__concede P {
+  color: white;
+  padding: 5px 15px;
+}
+
+.citygame__concede:hover {
+  background: rgba(255, 0, 0, 0.7);
+}
+
+/*-------------------УХОД ОСНОВНОЙ СТРАНИЦЫ ВНИЗ + ПРИХОД СПРАВА(ПОСЛЕ ВЕЛКОМ СКРИНА)-------------------------*/
+.citygame._end {
+  top: 100%;
+  left: 0;
+}
+
+.citygame._start {
+  position: fixed;
+  right: 0;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
+/*-------------------ИМЯ ИГРОКА КОТОРЫЙ ХОДИТ-------------------------*/
+.nameplayer {
+  text-decoration: underline;
+  color: #ffc600;
+}
+
+/*-------------------ИЗМЕНЕНИЕ ПРОЗРАЧНОСТИ ПЛЕЙСХОЛДЕРА ГОРОДА-------------------------*/
+input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+/*-------------------ДИЗАЙН ДЛЯ ВЫДЕЛЕННОЙ БУКВЫ У ГОРОДА-------------------------*/
+.redletter, .redlettertwo, .redletterthree, .redletterfour {
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  color: #ffc600;
+  text-transform: lowercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-decoration: underline;
+}
+
+.redletter {
+  right: 0;
+}
+
+.redlettertwo {
+  right: 9.75px;
+}
+
+.redletterthree {
+  right: 11.7px;
+}
+
+.redletterfour {
+  right: 13.55px;
+}
+
+/*-------------------ДИЗАЙН ПОСЛЕДНЕГО ГОРОДА (МИНИМАЛЬНО)-------------------------*/
+.lastcity {
+  position: relative;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+/*-------------------ПОПАП (МОДАЛЬНОЕ ОКНО)-------------------------*/
+.popup {
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  font-family: 'Raleway', sans-serif;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 20;
+}
+
+.popup__body {
+  max-width: 450px;
+  max-height: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  background: white;
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.popup__content {
+  margin: 0 auto;
+  padding: 50px;
+  position: relative;
+}
+
+.popup__close {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.popup__close::after, .popup__close::before {
+  content: "";
+  width: 25px;
+  height: 1px;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.popup__close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.popup__close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.popup__title {
+  text-align: center;
+  font-size: 25px;
+  padding: 0 0 20px 0;
+}
+
+.popup__text {
+  text-align: justify;
+  padding: 0 0 25px 0;
+  line-height: 1.4;
+}
+
+/*-------------------КТО ВЫИГРАЛ? В МОДАЛЬНОМ ОКНЕ ВЫБОР------------------------*/
+.winner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.winner__title {
+  padding: 0 0 20px 0;
+  font-size: 25px;
+}
+
+.winner__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  padding: 0 0 20px 0;
+}
+
+.winner__player {
+  padding: 10px 20px;
+  background: rgba(255, 192, 0, 0.9);
+  -webkit-box-shadow: 0 8px 22px 0 rgba(31, 38, 135, 0.2);
+          box-shadow: 0 8px 22px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 20px;
+}
+
+.winner__player_one {
+  color: #000;
+}
+
+.winner__player_two {
+  color: #000;
+}
+
+/*-------------------СТРАНИЦА ПОБЕДИТЕЛЯ------------------------*/
+.finish {
+  position: fixed;
+  width: 100%;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+  top: -100%;
+  left: 0;
+  padding: 50px 30px 50px 30px;
+}
+
+.finish__title {
+  display: block;
+  font-size: 140px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  color: black;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.finish__text {
+  padding: 70px 0 20px 0;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.finish__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.finish__restart {
+  padding: 10px 20px;
+  font-size: 25px;
+  background: rgba(255, 192, 0, 0.9);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.finish__restart:hover {
+  -webkit-box-shadow: 0 8px 32px 0 rgba(52, 135, 31, 0.25);
+          box-shadow: 0 8px 32px 0 rgba(52, 135, 31, 0.25);
+}
+
+/*-------------------СТРАНИЦА ПОБЕДИТЕЛЯ - СТАТИСТИКА ------------------------*/
+.statistics__counter {
+  color: white;
+  padding: 0 0 30px 0;
+  font-size: 25px;
+  line-height: 1.2;
+  max-width: 600px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.statistics__counter_timer {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.statistics__cities {
+  color: #ffc600;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.statistics__timer {
+  color: #ffc600;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/*-------------------ПЕРЕХОД К СТРАНИЦЕ ПОБЕДИТЕЛЯ СВЕРХУ------------------------*/
+.finish._hide {
+  top: 0;
+  left: 0;
+}
+
+/*-------------------В ТАЙМЕРЕ ДИЗАЙН Ч, МИН, СЕК------------------------*/
+.time {
+  display: inline-block;
+  color: #fff;
+  padding: 0 10px;
+  font-size: 30px;
+}
+
+/*-------------------ИМЯ ПОБЕДИТЕЛЯ------------------------*/
+.finalwinner {
+  color: #ffc600;
+  font-weight: 700;
+}
+
+/*-------------------ЗАКРЫТИЕ ПОПАПА------------------------*/
+.popup._close {
+  display: none;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
+/*-------------------КОНФЕТИ------------------------*/
+.confetti._block {
+  display: none;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 96px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  background: #FBBA23;
+  top: -10px;
+  opacity: 0;
+}
+
+.confetti-piece:nth-child(1) {
+  left: 7%;
+  -webkit-transform: rotate(148deg);
+          transform: rotate(148deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 383ms;
+          animation-delay: 383ms;
+  -webkit-animation-duration: 890ms;
+          animation-duration: 890ms;
+}
+
+.confetti-piece:nth-child(2) {
+  left: 14%;
+  -webkit-transform: rotate(-34deg);
+          transform: rotate(-34deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 173ms;
+          animation-delay: 173ms;
+  -webkit-animation-duration: 606ms;
+          animation-duration: 606ms;
+}
+
+.confetti-piece:nth-child(3) {
+  left: 21%;
+  -webkit-transform: rotate(-113deg);
+          transform: rotate(-113deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 26ms;
+          animation-delay: 26ms;
+  -webkit-animation-duration: 618ms;
+          animation-duration: 618ms;
+}
+
+.confetti-piece:nth-child(4) {
+  left: 28%;
+  -webkit-transform: rotate(-65deg);
+          transform: rotate(-65deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 412ms;
+          animation-delay: 412ms;
+  -webkit-animation-duration: 855ms;
+          animation-duration: 855ms;
+}
+
+.confetti-piece:nth-child(5) {
+  left: 35%;
+  -webkit-transform: rotate(27deg);
+          transform: rotate(27deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 338ms;
+          animation-delay: 338ms;
+  -webkit-animation-duration: 855ms;
+          animation-duration: 855ms;
+}
+
+.confetti-piece:nth-child(6) {
+  left: 42%;
+  -webkit-transform: rotate(161deg);
+          transform: rotate(161deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 11ms;
+          animation-delay: 11ms;
+  -webkit-animation-duration: 633ms;
+          animation-duration: 633ms;
+}
+
+.confetti-piece:nth-child(7) {
+  left: 49%;
+  -webkit-transform: rotate(-146deg);
+          transform: rotate(-146deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 339ms;
+          animation-delay: 339ms;
+  -webkit-animation-duration: 562ms;
+          animation-duration: 562ms;
+}
+
+.confetti-piece:nth-child(8) {
+  left: 56%;
+  -webkit-transform: rotate(75deg);
+          transform: rotate(75deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 421ms;
+          animation-delay: 421ms;
+  -webkit-animation-duration: 729ms;
+          animation-duration: 729ms;
+}
+
+.confetti-piece:nth-child(9) {
+  left: 63%;
+  -webkit-transform: rotate(13deg);
+          transform: rotate(13deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 242ms;
+          animation-delay: 242ms;
+  -webkit-animation-duration: 870ms;
+          animation-duration: 870ms;
+}
+
+.confetti-piece:nth-child(10) {
+  left: 70%;
+  -webkit-transform: rotate(85deg);
+          transform: rotate(85deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 376ms;
+          animation-delay: 376ms;
+  -webkit-animation-duration: 708ms;
+          animation-duration: 708ms;
+}
+
+.confetti-piece:nth-child(11) {
+  left: 77%;
+  -webkit-transform: rotate(111deg);
+          transform: rotate(111deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 370ms;
+          animation-delay: 370ms;
+  -webkit-animation-duration: 472ms;
+          animation-duration: 472ms;
+}
+
+.confetti-piece:nth-child(12) {
+  left: 84%;
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 132ms;
+          animation-delay: 132ms;
+  -webkit-animation-duration: 716ms;
+          animation-duration: 716ms;
+}
+
+.confetti-piece:nth-child(13) {
+  left: 91%;
+  -webkit-transform: rotate(-57deg);
+          transform: rotate(-57deg);
+  -webkit-animation: makeItRain 900ms infinite ease-out;
+          animation: makeItRain 900ms infinite ease-out;
+  -webkit-animation-delay: 90ms;
+          animation-delay: 90ms;
+  -webkit-animation-duration: 549ms;
+          animation-duration: 549ms;
+}
+
+.confetti-piece:nth-child(odd) {
+  background: #65BB5C;
+}
+
+.confetti-piece:nth-child(even) {
+  z-index: 1;
+}
+
+.confetti-piece:nth-child(4n) {
+  width: 5px;
+  height: 13px;
+  -webkit-animation-duration: 1800ms;
+          animation-duration: 1800ms;
+  background: #F23B14;
+}
+
+.confetti-piece:nth-child(3n) {
+  width: 5px;
+  height: 13px;
+  -webkit-animation-duration: 2250ms;
+          animation-duration: 2250ms;
+  -webkit-animation-delay: 900ms;
+          animation-delay: 900ms;
+}
+
+.confetti-piece:nth-child(4n-7) {
+  background: #2A2F6A;
+}
+
+@-webkit-keyframes makeItRain {
+  from {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateY(96px);
+            transform: translateY(96px);
+  }
+}
+
+@keyframes makeItRain {
+  from {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: translateY(96px);
+            transform: translateY(96px);
+  }
+}
+
+/*-------------------АДАПТИВ------------------------*/
+@media (min-width: 900px) {
+  .citygame {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .welcome {
+    padding: 20px 30px 50px 30px;
+  }
+  .welcome__title {
+    font-size: 100px;
+  }
+  .welcome__text {
+    padding: 40px 0 20px 0;
+  }
+  .finish__title {
+    font-size: 120px;
+  }
+}
+
+@media (max-width: 680px) {
+  .welcome__title {
+    font-size: 60px;
+  }
+  .welcome__text {
+    font-size: 15px;
+    padding: 25px 0;
+  }
+  .welcome__button {
+    font-size: 20px;
+    padding: 10px 0;
+  }
+  .citygame__title {
+    font-size: 60px;
+  }
+  .citygame__rules {
+    padding: 30px 0 20px 0;
+  }
+  .citygame__playername {
+    font-size: 30px;
+  }
+  .citygame__input {
+    padding: 10px;
+    font-size: 30px;
+  }
+  .citygame__button {
+    margin: 20px 0 10px 0;
+  }
+  .citygame__button p {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  .finish {
+    padding: 50px 10px 0 10px;
+  }
+  .finish__title {
+    font-size: 60px;
+  }
+  .finish__text {
+    font-size: 25px;
+    padding: 30px 0 15px 0;
+  }
+  .finish__restart {
+    font-size: 20px;
+  }
+  .statistics__counter {
+    padding: 0 0 15px 0;
+  }
+  .statistics__timer {
+    font-size: 35px;
+  }
+  .statistics__cities {
+    font-size: 35px;
+  }
+  .popup__content {
+    padding: 40px 25px 15px 25px;
+  }
+  .popup__body {
+    width: 90%;
+    max-height: 500px;
+  }
+  .popup__text {
+    text-align: left;
+    padding: 0 0 15px 0;
+    line-height: 1.4;
+  }
+  .winner__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 15px;
+  }
+  .time {
+    font-size: 25px;
+  }
+  .finalwinner {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 450px) {
+  .welcome {
+    padding: 20px 10px 50px 10px;
+  }
+  .welcome__title {
+    font-size: 45px;
+  }
+  .welcome__text {
+    font-size: 15px;
+    padding: 20px 0 5px 0;
+  }
+  .citygame {
+    padding: 30px 10px 50px 10px;
+  }
+  .citygame__title {
+    font-size: 45px;
+  }
+  .citygame__rules {
+    padding: 25px 0 10px 0;
+  }
+  .player__card {
+    margin-bottom: 10px;
+  }
+  .welcome__start {
+    margin: 35px 0 0 0;
+  }
+}

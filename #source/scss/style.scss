@@ -1,0 +1,657 @@
+// Обнуление стилей
+@import "nullstyle.scss";
+// Подключение шрифтов
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap'); //font-family: 'Raleway', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); //font-family: 'Pacifico', cursive;
+//SCSS
+/*-------------------МИКСИНЫ-------------------------*/
+//ЗАПРЕТ ВЫДЕЛЕНИЯ ТЕКСТА (ДЛЯ ЛОГОТИПА ИГРЫ)
+@mixin notselecttext {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*-------------------БАЗА - ФОН, ШРИФТ, ШИРИНА, КОНТЕНТ-------------------------*/
+body{
+    background: rgb(47,110,211);
+    background: linear-gradient(0deg, rgba(47,110,211,1) 0%, rgba(80,149,228,1) 47%, rgba(47,110,211,1) 100%);    
+}
+.main{
+    font-family: 'Raleway', sans-serif;
+}
+.content {
+    position: relative;
+    margin: 0 auto;  
+}
+.container{
+    max-width: 1000px;
+    margin: 0 auto;  
+}
+/*-------------------ПЕРВАЯ СТРАНИЦА, ГДЕ ВВОДИМ ИМЕНА ИГРОКОВ-------------------------*/
+.welcome {
+    position: fixed;
+    width: 100%;
+    transition: all 0.8s ease 0s;
+    left: 0;
+    padding: 50px 30px 50px 30px;
+    &__title {
+        display: block;
+        font-size: 140px;
+        text-align: center;
+        font-family: 'Pacifico', cursive;
+        color: rgb(0, 0, 0);
+        @include notselecttext;
+    }
+    &__text {
+        padding: 70px 0 20px 0;
+        font-size: 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.658);
+        line-height: 1.2;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    &__start {
+        width: 100%;
+        margin: 50px 0;
+    }
+    &__button {
+        width: 100%;
+        font-size: 30px;
+        padding: 15px 0;
+        border-radius: 15px;
+        background: rgba( 255, 255, 255, 0.45 );
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.123);
+        backdrop-filter: blur( 7.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        &:hover{
+            transition: all 0.4s ease 0s;
+            background: rgba( 255, 192, 0, 0.9 );
+        }
+    }
+}
+/*-------------------ВВОД ИМЕН ИГРОКОВ-------------------------*/
+.player {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    &__card {
+        margin-bottom: 30px;
+        &:last-child{
+            margin: 0;
+        }
+    }
+    &__number {
+        font-size: 25px;
+        padding: 10px 0;
+        text-align: center;
+        color: #fff;
+    }
+    &__input{
+        font-size: 20px;
+        border-radius: 15px;
+        padding: 10px 20px;
+        text-align: center;
+        width: 100%;
+        background: rgba( 255, 255, 255, 0.75 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 20px );
+        -webkit-backdrop-filter: blur( 20px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        &:focus{
+            box-shadow: 0 8px 32px 0 rgba(89, 255, 111, 0.295);
+            border: 1px solid rgba(102, 255, 0, 0.18);
+        }
+    }
+}
+/*-------------------УХОД СТРАНИЦЫ ВЛЕВО-------------------------*/
+.welcome._hide{
+    left: -100%;
+    transition: all 0.8s ease 0s;
+}
+/*-------------------ОСНОВНАЯ СТРАНИЦА ИГРЫ-------------------------*/
+.citygame {
+    width: 100%;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    padding: 30px 30px 50px 30px;
+		&__title {
+            font-size: 100px;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            @include notselecttext;
+		}
+		&__rules {
+            padding: 50px 30px 10px 30px;
+            font-size: 15px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.37);
+            line-height: 1.2;
+            max-width: 700px;
+            margin: 0 auto;
+		}
+		&__answer {
+            margin-top: 15px;
+		}
+        &__items{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__button{
+            margin: 20px 0;
+            background: rgba( 255, 192, 0, 0.9 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 14px );
+            -webkit-backdrop-filter: blur( 14px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            &:hover{
+                box-shadow: 0 8px 32px 0 rgba(255, 230, 0, 0.24);
+            }
+            p{
+                font-size: 30px;
+                padding: 15px 30px;
+            }
+        }
+        &__lastcity{
+            text-align: center;
+            font-size: 20px;
+            margin-top: 15px;
+            color: #fff;
+        }
+		&__input {
+            width: 100%;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 50px;
+            text-align: center;
+            background: rgba( 255, 255, 255, 0.75 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 20px );
+            -webkit-backdrop-filter: blur( 20px );
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            &:focus{
+                box-shadow: 0 8px 32px 0 rgba(31, 128, 135, 0.37);
+            }
+		}
+        &__playername{
+            font-size: 40px;
+            text-align: center;
+            padding: 10px 0 0 0;
+            color: #fff;
+        }
+        &__concede{
+            background: rgba( 255, 255, 255, 0.1 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
+            backdrop-filter: blur( 9px );
+            -webkit-backdrop-filter: blur( 9px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.08 );
+            P{
+                color: rgb(255, 255, 255);
+                padding: 5px 15px;
+            }
+            &:hover{
+                background: rgba( 255, 0, 0, 0.7 );
+            }
+        }
+}
+/*-------------------УХОД ОСНОВНОЙ СТРАНИЦЫ ВНИЗ + ПРИХОД СПРАВА(ПОСЛЕ ВЕЛКОМ СКРИНА)-------------------------*/
+.citygame._end{
+    top: 100%;
+    left: 0;
+}
+.citygame._start{
+    position: fixed;
+    right: 0;
+    transition: all 0.8s ease 0s;
+}
+/*-------------------ИМЯ ИГРОКА КОТОРЫЙ ХОДИТ-------------------------*/
+.nameplayer{
+    text-decoration: underline;
+    color: #ffc600;
+}
+/*-------------------ИЗМЕНЕНИЕ ПРОЗРАЧНОСТИ ПЛЕЙСХОЛДЕРА ГОРОДА-------------------------*/
+input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.15);
+} 
+/*-------------------ДИЗАЙН ДЛЯ ВЫДЕЛЕННОЙ БУКВЫ У ГОРОДА-------------------------*/
+.redletter, .redlettertwo, .redletterthree, .redletterfour{
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    color: #ffc600;
+    text-transform: lowercase;
+    user-select: none;
+    text-decoration: underline;
+}
+.redletter{
+    right: 0;
+}
+.redlettertwo{
+    right: 9.75px;
+}
+.redletterthree{
+    right: 11.7px;
+}
+.redletterfour{
+    right: 13.55px;
+}
+/*-------------------ДИЗАЙН ПОСЛЕДНЕГО ГОРОДА (МИНИМАЛЬНО)-------------------------*/
+.lastcity{
+    position: relative;
+    display: inline-block;
+    text-transform: capitalize;
+}
+/*-------------------ПОПАП (МОДАЛЬНОЕ ОКНО)-------------------------*/
+.popup {
+    transition: all 0.8s ease 0s;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 11.5px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    &__body {
+        max-width: 450px;
+        max-height: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 9px );
+        -webkit-backdrop-filter: blur( 9px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    &__content {
+        margin: 0 auto;
+        padding: 50px;
+        position: relative;
+    }
+    &__close {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        &::after, &::before{
+            content: "";
+            width: 25px;
+            height: 1px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+        }
+        &::before{
+            transform: rotate(45deg);
+        }
+        &::after{
+            transform: rotate(-45deg);
+        }
+    }
+    &__title {
+        text-align: center;
+        font-size: 25px;
+        padding: 0 0 20px 0;
+    }
+    &__text {
+        text-align: justify;
+        padding: 0 0 25px 0;
+        line-height: 1.4;
+    }
+}
+/*-------------------КТО ВЫИГРАЛ? В МОДАЛЬНОМ ОКНЕ ВЫБОР------------------------*/
+.winner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    &__title {
+        padding: 0 0 20px 0;
+        font-size: 25px;
+    }
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding: 0 0 20px 0;
+    }
+    &__player {
+        padding: 10px 20px;
+        background: rgba( 255, 192, 0, 0.9 );
+        box-shadow: 0 8px 22px 0 rgba( 31, 38, 135, 0.2 );
+        backdrop-filter: blur( 14px );
+        -webkit-backdrop-filter: blur( 14px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        font-size: 20px;
+        &_one {
+            color: #000;
+        }
+        &_two {
+            color: #000;
+        }
+    }
+}
+/*-------------------СТРАНИЦА ПОБЕДИТЕЛЯ------------------------*/
+.finish {
+    position: fixed;
+    width: 100%;
+    transition: all 0.8s ease 0s;
+    top: -100%;
+    left: 0;
+    padding: 50px 30px 50px 30px;
+    &__title {
+        display: block;
+        font-size: 140px;
+        text-align: center;
+        font-family: 'Pacifico', cursive;
+        color: rgb(0, 0, 0);
+        @include notselecttext;
+    }
+    &__text {
+        padding: 70px 0 20px 0;
+        color: rgba(255, 255, 255, 1); 
+        font-size: 30px;
+        text-align: center;
+        line-height: 1.2;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    &__button{
+        display: flex;
+        justify-content: center;
+    }
+    &__restart{
+        padding: 10px 20px;
+        font-size: 25px;
+        background: rgba( 255, 192, 0, 0.9 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.25 );
+        backdrop-filter: blur( 11.5px );
+        -webkit-backdrop-filter: blur( 11.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        &:hover{
+            box-shadow: 0 8px 32px 0 rgba(52, 135, 31, 0.25); 
+        }
+    }
+}
+/*-------------------СТРАНИЦА ПОБЕДИТЕЛЯ - СТАТИСТИКА ------------------------*/
+.statistics {
+    &__counter {
+        color: rgba(255, 255, 255, 1); 
+        padding: 0 0 30px 0;
+        font-size: 25px;
+        line-height: 1.2;
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        &_timer{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__cities {
+        color: #ffc600;
+        font-size: 40px;
+        font-weight: 700;
+        padding: 0 10px;
+    }
+    &__timer{
+        color: #ffc600;
+        font-size: 40px;
+        font-weight: 700;
+    }
+}
+/*-------------------ПЕРЕХОД К СТРАНИЦЕ ПОБЕДИТЕЛЯ СВЕРХУ------------------------*/
+.finish._hide{
+    top: 0;
+    left: 0;
+}
+/*-------------------В ТАЙМЕРЕ ДИЗАЙН Ч, МИН, СЕК------------------------*/
+.time{
+    display: inline-block;
+    color: #fff;
+    padding: 0 10px;
+    font-size: 30px;
+}
+/*-------------------ИМЯ ПОБЕДИТЕЛЯ------------------------*/
+.finalwinner {
+    color: #ffc600;
+    font-weight: 700;
+}
+/*-------------------ЗАКРЫТИЕ ПОПАПА------------------------*/
+.popup._close{
+    display: none;
+    transition: all 0.8s ease 0s;
+}
+/*-------------------КОНФЕТИ------------------------*/
+.confetti._block{
+    display: none;
+}
+$duration: 900;
+@function randomNum($min, $max) {
+    $rand: random();
+    $randomNum: $min + floor($rand * (($max - $min) + 1));
+    @return $randomNum;
+}
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 96px;
+    overflow: hidden;
+    pointer-events: none;
+}
+.confetti-piece {
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    background: #FBBA23;
+    top: -10px;
+    opacity: 0;
+    @for $i from 1 through 13 {
+        &:nth-child(#{$i}) {
+            left: $i * 7%;
+            transform: rotate(#{randomNum(-180, 180)}deg);
+            animation: makeItRain $duration * 1ms infinite ease-out;
+            animation-delay: #{randomNum(0, $duration * .5)}ms;
+            animation-duration: #{randomNum($duration * .5, $duration * 1)}ms
+        }
+    }
+    &:nth-child(odd) {
+        background: #65BB5C;
+    }
+    &:nth-child(even) {
+        z-index: 1;
+    }
+    &:nth-child(4n) {
+        width: 5px;
+        height: 13px;
+        animation-duration: $duration * 2ms;
+        background: #F23B14;
+    }
+    &:nth-child(3n) {
+        width: 5px;
+        height: 13px;
+        animation-duration: $duration * 2.5ms;
+        animation-delay: $duration * 1ms;
+    }
+    &:nth-child(4n-7) {
+        background: #2A2F6A;
+    }
+}
+@keyframes makeItRain {
+    from {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(96px);
+    }
+}
+@media (prefers-reduced-motion) {
+    // We'll need to reduce this motion based on this media query
+}
+/*-------------------АДАПТИВ------------------------*/
+@media (min-width: 900px) {
+    .citygame{
+        margin-top: 50px;
+    }
+}
+@media (max-width: 900px) {
+    .welcome{
+        padding: 20px 30px 50px 30px;
+        &__title{
+            font-size: 100px;
+        }
+        &__text{
+            padding: 40px 0 20px 0;
+        }
+    }
+    .finish__title{
+        font-size: 120px;
+    }
+}
+@media (max-width: 680px) {
+    .welcome{
+        &__title{
+            font-size: 60px;
+        }
+        &__text{
+            font-size: 15px;
+            padding: 25px 0;
+        }
+        &__button{
+            font-size: 20px;
+            padding: 10px 0;
+        }
+    }
+    .citygame{
+        &__title{
+            font-size: 60px;
+        }
+        &__rules{
+            padding: 30px 0 20px 0;
+        }
+        &__playername{
+            font-size: 30px;
+        }
+        &__input{
+            padding: 10px;
+            font-size: 30px;
+        }
+        &__button{
+            margin: 20px 0 10px 0;
+            p{
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+        }
+    }
+    .finish{
+        padding: 50px 10px 0 10px;
+        &__title{
+            font-size: 60px;
+        }
+        &__text{
+            font-size: 25px;
+            padding: 30px 0 15px 0;
+        }
+        &__restart{
+            font-size: 20px;
+        }
+    }
+    .statistics{
+        &__counter{
+            padding: 0 0 15px 0;
+        }
+        &__timer{
+            font-size: 35px;
+        }
+        &__cities{
+            font-size: 35px;
+        }
+    }
+    .popup{
+        &__content{
+            padding: 40px 25px 15px 25px;
+        }
+        &__body{
+            width: 90%;
+            max-height: 500px;
+        }
+        &__text{
+            text-align: left;
+            padding: 0 0 15px 0;
+            line-height: 1.4;
+        }
+    }
+    .winner__buttons{
+        flex-direction: column;
+        gap: 15px;
+    }
+    .time{
+        font-size: 25px;
+    }
+    .finalwinner{
+        font-size: 35px;
+    }
+}
+@media (max-width: 450px) {
+    .welcome{
+        padding: 20px 10px 50px 10px;
+        &__title{
+            font-size: 45px;
+        }
+        &__text{
+            font-size: 15px;
+            padding: 20px 0 5px 0;
+        }
+    }
+    .citygame{
+        padding: 30px 10px 50px 10px;
+        &__title{
+            font-size: 45px;
+        }
+        &__rules{
+            padding: 25px 0 10px 0;
+        }
+    }
+    .player__card{
+        margin-bottom: 10px;
+    }
+    .welcome__start{
+        margin: 35px 0 0 0;
+    }
+    
+}
+
+
+
+

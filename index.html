@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Кодировка страницы -->
+	<meta charset="UTF-8">
+	<!-- Заголовок страницы в браузере -->
+	<title>Игра в города</title>
+	<!-- Подключение CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Адаптив -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- Фавикон -->
+	<link rel="shortcut icon" href="img/favicon/gamecityicon.ico">
+</head>
+
+<body>
+
+	<div class="confetti _block">
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+		<div class="confetti-piece"></div>
+	</div>
+
+	<main class="main">
+		<div class="content">
+			<div class="welcome">
+				<div class="container">
+					<div class="welcome__title">
+						Игра в города
+					</div>
+					<div class="welcome__text">
+						Добро пожаловать в игру в города. Прежде чем начать, представьте каждого игрока смешным именем.
+					</div>
+					<form action="#" class="playerform">
+						<div class="welcome__players player">
+							<div class="player__card">
+								<div class="player__number">
+									Имя первого игрока
+								</div>
+								<div class="player__name">
+									<input class="player__input firstplayer" type="text" placeholder="Меня зовут..."
+										value="Фернан">
+								</div>
+							</div>
+							<div class="player__card">
+								<div class="player__number">
+									Имя второго игрока
+								</div>
+								<div class="player__name">
+									<input class="player__input secondplayer" type="text" placeholder="Меня зовут..."
+										value="Марко">
+								</div>
+							</div>
+						</div>
+						<div class="welcome__start">
+							<button class="welcome__button">Начать игру!</button>
+						</div>
+					</form>
+					<!-- <div id="timer" class="welcome__text"></div> -->
+				</div>
+			</div>
+
+			<div class="citygame">
+				<div class="container">
+					<div class="citygame__title">
+						Игра в города
+					</div>
+					<div class="citygame__rules">
+						Игра рассчитаная на 2х и более игроков. Вы по очереди пишите города, имена которых начинаются на
+						последнюю букву предыдущего города. Успехов!
+					</div>
+					<div class="citygame__playername">
+						Ход игрока <span class="nameplayer"></span>
+					</div>
+					<div class="citygame__lastcity"></div>
+					<div class="citygame__answer">
+						<input type="text" class="citygame__input" placeholder="Имя города...">
+					</div>
+					<div class="citygame__items">
+						<button class="citygame__button">
+							<p>Подтвердить</p>
+						</button>
+						<div class="citygame__message"></div>
+						<button class="citygame__concede">
+							<p>Закончить игру</p>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="finish">
+				<div class="finish__title">
+					Конец игры
+				</div>
+				<div class="finish__text">
+					Поздравляем с победой, <span class="finalwinner"></span>
+				</div>
+				<div class="finish__statiscics statistics">
+					<div class="statistics__counter">
+						Было названо городов за игру: <span class="statistics__cities"></span>
+					</div>
+					<div class="statistics__counter statistics__counter_timer">
+						Было затрачено времени: <span class="statistics__timer"></span>
+					</div>
+				</div>
+				<div class="finish__button">
+					<button class="finish__restart">Сыграть заново</button>
+				</div>
+			</div>
+		</div>
+	</main>
+	<div id="popup" class="popup _close">
+		<div class="popup__body">
+			<div class="popup__content">
+				<a href="#" class="popup__close"></a>
+				<div class="popup__title">Игра окончена?</div>
+				<div class="popup__text">Игроки назвали все города мира? Выбирайте победителя, чтобы подвести итоги
+					игры.</div>
+				<div class="popup__winner winner">
+					<div class="winner__title">
+						Победитель:
+					</div>
+					<div class="winner__buttons">
+						<button class="winner__player"><a class="winner__player_one"></a></button>
+						<button class="winner__player"><a class=" winner__player_two"></a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/scrypt.js"></script>
+</body>
+
+</html>
